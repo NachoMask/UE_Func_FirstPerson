@@ -27,6 +27,9 @@ protected:
 	UFUNCTION()
 	void MoveAction(const FInputActionValue& Value);
 
+	UFUNCTION()
+	void CameraAction(const FInputActionValue& Value);
+
 protected:
 	UPROPERTY(VisibleAnywhere, Category = "FP")
 	TObjectPtr<AFP_Character> PossessedCharacter = nullptr;

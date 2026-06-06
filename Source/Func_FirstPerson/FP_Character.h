@@ -6,6 +6,8 @@
 #include "GameFramework/Character.h"
 #include "FP_Character.generated.h"
 
+class UCameraComponent;
+
 UCLASS()
 class FUNC_FIRSTPERSON_API AFP_Character : public ACharacter
 {
@@ -17,4 +19,9 @@ public:
 public:
 	/** Input Action */
 	void MoveAction(FVector2D Value);
+	void CameraAction(FVector2D Value);
+
+protected:
+	UPROPERTY()
+	TObjectPtr<UCameraComponent> CameraComponent;
 };

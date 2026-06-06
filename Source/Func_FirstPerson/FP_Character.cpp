@@ -3,10 +3,14 @@
 
 #include "FP_Character.h"
 
+#include "Camera\CameraComponent.h"
+
 // Sets default values
 AFP_Character::AFP_Character()
 {
-
+	CameraComponent = CreateDefaultSubobject<UCameraComponent>(TEXT("Camera"));
+	CameraComponent->SetupAttachment(RootComponent);
+	CameraComponent->bUsePawnControlRotation = true;
 }
 
 void AFP_Character::MoveAction(FVector2D Value)
