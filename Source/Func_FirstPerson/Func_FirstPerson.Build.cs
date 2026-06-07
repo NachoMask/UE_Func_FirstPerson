@@ -10,6 +10,8 @@ public class Func_FirstPerson : ModuleRules
 	
 		PublicDependencyModuleNames.AddRange(new string[] { "Core", "CoreUObject", "Engine", "InputCore", "EnhancedInput" });
 
+		PublicIncludePaths.AddRange(new string[] { "Func_FirstPerson" });
+
 		PrivateDependencyModuleNames.AddRange(new string[] {  });
 
 		// Uncomment if you are using Slate UI
