@@ -92,3 +92,11 @@ void AFP_PlayerController::CameraAction(const FInputActionValue& Value)
 		PossessedCharacter->CameraAction(Value.Get<FVector2D>());
 	}
 }
+
+void AFP_PlayerController::InteractAction(const FInputActionValue& Value)
+{
+	if (PossessedCharacter)
+	{
+		PossessedCharacter->InteractAction();
+	}
+}

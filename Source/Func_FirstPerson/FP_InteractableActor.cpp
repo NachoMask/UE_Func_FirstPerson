@@ -11,10 +11,12 @@ AFP_InteractableActor::AFP_InteractableActor()
 
 void AFP_InteractableActor::ShowOutline()
 {
+	GEngine->AddOnScreenDebugMessage(-1, 0.5f, FColor::Yellow, TEXT("Show Outline"));
 }
 
 void AFP_InteractableActor::HideOutline()
 {
+	GEngine->AddOnScreenDebugMessage(-1, 0.5f, FColor::Red, TEXT("Hide Outline"));
 }
 
 void AFP_InteractableActor::Interact()
