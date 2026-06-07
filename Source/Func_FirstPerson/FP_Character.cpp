@@ -48,10 +48,6 @@ void AFP_Character::InteractAction()
 			Interactable->Interact();
 		}
 	}
-	else
-	{
-
-	}
 }
 
 void AFP_Character::UpdateCameraFocus()
@@ -75,24 +71,23 @@ void AFP_Character::UpdateCameraFocus()
 
 void AFP_Character::ChangeFocusedActor(AActor* NewActor)
 {
-	if (NewActor)
+	if (NewActor == nullptr)
 	{
-		if (FocusedActor != NewActor)
+		if (IFP_InteractableInterface* OldFocused = Cast<IFP_InteractableInterface>(FocusedActor))
 		{
-			if (NewActor->Implements<UFP_InteractableInterface>())
-			{
-				Cast<IFP_InteractableInterface>(NewActor)->ShowOutline();
-			}
+			OldFocused->HideOutline();
 		}
 	}
-	else
+	else if (FocusedActor != NewActor)
 	{
-		if (FocusedActor != nullptr)
+		if (IFP_InteractableInterface* OldFocused = Cast<IFP_InteractableInterface>(FocusedActor))
 		{
-			if (FocusedActor->Implements<UFP_InteractableInterface>())
-			{
-				Cast<IFP_InteractableInterface>(FocusedActor)->HideOutline();
-			}
+			OldFocused->HideOutline();
+		}
+
+		if (IFP_InteractableInterface* NewFocused = Cast<IFP_InteractableInterface>(NewActor))
+		{
+			NewFocused->ShowOutline();
 		}
 	}
 
